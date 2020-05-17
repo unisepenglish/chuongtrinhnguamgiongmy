@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"f1e66e60b0",applicationID:"230713468"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta name="HandheldFriendly" content="true" />
+      <!-- Primary Meta Tags -->
+<title>CHƯƠNG TRÌNH NGỮ ÂM GIỌNG MỸ ONLINE 199K</title>
+<meta name="title" content="CHƯƠNG TRÌNH NGỮ ÂM GIỌNG MỸ ONLINE 199K">
+<meta name="description" content="Chương trình phù hợp cho người phát âm chưa chuẩn xác, giao tiếp tiếng Anh chưa tự nhiên. Chương trình này giúp bạn phát âm chuẩn đến từng từ.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metatags.io/">
+<meta property="og:title" content="CHƯƠNG TRÌNH NGỮ ÂM GIỌNG MỸ ONLINE 199K">
+<meta property="og:description" content="Chương trình phù hợp cho người phát âm chưa chuẩn xác, giao tiếp tiếng Anh chưa tự nhiên. Chương trình này giúp bạn phát âm chuẩn đến từng từ.">
+<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://metatags.io/">
+<meta property="twitter:title" content="CHƯƠNG TRÌNH NGỮ ÂM GIỌNG MỸ ONLINE 199K">
+<meta property="twitter:description" content="Chương trình phù hợp cho người phát âm chưa chuẩn xác, giao tiếp tiếng Anh chưa tự nhiên. Chương trình này giúp bạn phát âm chuẩn đến từng từ.">
+<meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+      <link rel="shortcut icon" href=""  type="image/x-icon">
+      <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+      <link href="" type="text/css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" type="text/css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" type="text/css" rel="stylesheet">
+      <!--[if lt IE 9]>
+      <link href="https://old.assets-landingi.com/bootstrap/css/ie8-grid.css?v=8.9.8" type="text/css" rel="stylesheet">
+      <link href="https://styles.assets-landingi.com/qTuA9fml/base_ie8.css" type="text/css" rel="stylesheet">
+      <![endif]-->
+      <link href="https://styles.assets-landingi.com/assets/css/2.11-landend-base.css" type="text/css" rel="stylesheet">
+      <link href="https://styles.assets-landingi.com/LMwsC8z3/base.css" type="text/css" rel="stylesheet">
+      <script>
+         var landingiInternalDetails = {
+             'landing_id': '818281',
+             'landing_hash': '03187e3a565704cd9846',
+             'landing_variant_hash': '',
+             'landing_name': 'unisep.programme',
+             'landing_lang': 'en',
+             'account_uuid': '4cda77e2-9804-11ea-9e67-b64596fd2821',
+             'apikey': '298d9af5-839f-4e12-8a4f-d15e2630ca73'
+         }
+      </script><script src="https://popups.landingi.com/api/v2/landing/install-code?apikey=298d9af5-839f-4e12-8a4f-d15e2630ca73&landing=03187e3a565704cd9846"></script><script src="https://scripts.assets-landingi.com/lightboxes/lightbox-render.js?v=150520"></script>
+      <script>
+         window.addEventListener('load', function () {
+             LightboxRender.init({
+                 useAaf: true
+             })
+         });
+      </script>
+   </head>
+   <body id="TxvpQxGuo6CkxW3pseVeXnPkXz3TAWhR">
+      <div id="HavKOlaLMQTIp7A94T8TMFkmaUNyhEqC" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="x1oRXIWZoBPom2TcCTIugDs3hZ4m6s3e" class="widget widget-text">
+                  <p>Courses</p>
+               </div>
+               <img id="fwqm50o7nm2hDHAy4S5Cw7ldFcJTR0Ix"  width="83" height="48"  class="widget widget-image" data-original="https://images.assets-landingi.com/d1ar3wb3/04.png" src="https://images.assets-landingi.com/BHjQYcVSJMYrcpqS/04.png" srcset="https://images.assets-landingi.com/BHjQYcVSJMYrcpqS/04.png 1x, https://images.assets-landingi.com/d1ar3wb3/04.png 2x"  alt="" >
+               <div id="lKzZTNyJ9Tru39KvCEB2ngoPMlc9JZRO" class="widget widget-text">
+                  <p>Online</p>
+               </div>
+               <a href="#dHAV02XWJXTtafG1pZtwFTBRb9l1UGUT" id="OKZvgHspXG65fKtiG07st6ggwz9F5hKa" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="LVF9zQJ0aCs6WKOnR5ERuBFG2w4lW9AE" class="widget widget-text">learn more</div>
+               </a>
+               <a href="#GnvoFOci3CP7lmZtt4SvU1FF0Wft2SHP" id="ohLT9NFuUHrNiDNEmvlQU8OSATfb16Tu" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="lvLqrdIZIKIoCF6cgexVRUBe7svNTyhF" class="widget widget-text">about us</div>
+               </a>
+               <a href="#y9hd7g70xJcJFcTIcOD084xbe9aH3wsk" id="hg60AWTEIkkVRNxyNrTATPLvqTl9O9NI" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="ZXr1NLbT7mT8W1igKfAtv0CRhvLOU6Oy" class="widget widget-text">social proofs</div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div id="GnvoFOci3CP7lmZtt4SvU1FF0Wft2SHP" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="znJ3ovNtzRntf3XOv6cMR7DzDxvNoDhx" class="widget widget-box"></div>
+               <form id="Dc3OBP7eMtn44Qxu7Cyz2IPOV9v00ZOo" class="widget widget-form" data-orientation="horizontal" data-version="2.1" action="/bf9b6fd4-9804-11ea-81f0-96db58ac4496/submit/03187e3a565704cd9846" enctype="multipart/form-data" method="post" novalidate data-hash="03187e3a565704cd9846">
+                  <div id="Ouy041waXD3gLoO0yvZn4qVtplclVX0t" class="widget widget-container clearfix"><label id="w6l80IHulQJcZvDhB1XTFFIEEHTi3B9p" class="widget widget-text widget-regular-label widget-label">Email</label><input class="widget widget-input-text" id="duDz08crKQIIFfFQxqlcfAk5ETA4FzTc"  type="email" subtype="email" parentId="Dc3OBP7eMtn44Qxu7Cyz2IPOV9v00ZOo" placeholder="Enter Your E-Mail to Subscribe*"  name="email"  value=""></div>
+                  <div id="xFsHPK1IrrwE370vMbaRny9OOX4kIwNu" class="widget widget-container input-button-container clearfix">
+                     <button class="widget widget-input-button" type="submit" id="Tg9RWRwTZ7BqKI1PnCMAcGMuP3gf61ah"  parentId="Dc3OBP7eMtn44Qxu7Cyz2IPOV9v00ZOo">
+                        <div class="widget-overlay"></div>
+                        subscribe
+                     </button>
+                  </div>
+                  <input type="hidden"    name="_name_"  value=""><input type="hidden"    name="_lead_uuid"  value=""><input type="hidden" name="_uid" value="Dc3OBP7eMtn44Qxu7Cyz2IPOV9v00ZOo"><input type="hidden" name="_redirect" value="">
+               </form>
+               <div id="TyQQM3WuFSDT0dVqbKpRBrAvyhTNZ764" class="widget widget-text">
+                  <p>*You will get the opportunity to win a free cources</p>
+               </div>
+               <div id="sv1V8eg4u2W7nIuAn6PQo9cUczRngI4G" class="widget widget-text">
+                  <p>The Best Online Education Courses</p>
+               </div>
+               <div id="TsXl9Bdw72aTXIryGbnLELWzUE2VLUSd" class="widget widget-text">
+                  <p><b>Subscribe</b> to the Newsletter and be the first who will <b>Get Free Course</b></p>
+               </div>
+               <div id="PJzPFSOd4rlE0CUnSTgcSTLLGD4PqJIl" class="widget widget-text">
+                  <p>Online Education</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="rLKqtM2uEkTtvmu6utFEgd9rtO7AZSzS" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="cDhI6WRktGHtJ223mXhD7U93zKZ9eh6K" class="widget widget-text">
+                  <p>Advantages</p>
+               </div>
+               <div id="NiC1ud8qKZAyHW2CrRoywTCT2FhZ581J" class="widget widget-text">
+                  <p>Why Choose Us</p>
+               </div>
+               <div id="BSXfo40tX4oZ14y2prKd1xP0vxyhyBi0" class="widget widget-text">
+                  <p>A supporting statement for your value proposition to encourage </p>
+               </div>
+               <div id="sKfnaqayXILE7UKALseT6TnVs01rLp9O" class="widget widget-box"></div>
+            </div>
+         </div>
+      </div>
+      <div id="DwcN8oIT7kSGuoZmoviwEBgGmctF4ttw" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="d1k5KmoD0yTWeDyPdc7iZV3MI6qMg4Wd" class="widget widget-box"></div>
+               <img id="x275DOkhn91DcbeO9ECnqPDwSWb0QW51"  width="55" height="69"  class="widget widget-image" data-original="https://images.assets-landingi.com/ebk9WTYf/01.png" src="https://images.assets-landingi.com/BMaA73NusTg6L7E1/01.png" srcset="https://images.assets-landingi.com/BMaA73NusTg6L7E1/01.png 1x, https://images.assets-landingi.com/ebk9WTYf/01.png 2x"  alt="" >
+               <div id="tF2y7Cxs69WsLSsWPI8VEEqpv0icTrlr" class="widget widget-text">
+                  <p>Benefit No. 1</p>
+               </div>
+               <div id="UuqFq0XEUqCPEWlz6uGIcuUgudiQO63i" class="widget widget-text">
+                  <p>Add a description of your offer </p>
+                  <p>and key benefits. What it is <span style="">and </span></p>
+                  <p><span style="">how it helps your customer.</span></p>
+               </div>
+               <div id="bnRFvrLyewbRiWZy7Urox2IgC7WXkF6c" class="widget widget-box"></div>
+               <div id="kyIc74Mai6vdOdS4RyLBgH1FEbC1tA6v" class="widget widget-text">
+                  <p>Add a description of your offer </p>
+                  <p>and key benefits. What it is <span style="">and </span></p>
+                  <p><span style="">how it helps your customer.</span></p>
+               </div>
+               <div id="V0U0RzDOSM5V8Wg3UACxiWtkB9wD4GJT" class="widget widget-text">
+                  <p>Benefit No. 2</p>
+               </div>
+               <img id="oekLXXn0R3OTK5Dly0Qbd61qmSCvwZzL"  width="64" height="64"  class="widget widget-image" data-original="https://images.assets-landingi.com/GUzBCz1b/02.png" src="https://images.assets-landingi.com/guuAOQRkwOrZoYos/02.png" srcset="https://images.assets-landingi.com/guuAOQRkwOrZoYos/02.png 1x, https://images.assets-landingi.com/GUzBCz1b/02.png 2x"  alt="" >
+               <div id="UPvFdWrqMfR0KNq22RUp3kU8RV80lN6d" class="widget widget-box"></div>
+               <div id="SgcIph4CN9B2h4rJo7V2tXGr1W57t78l" class="widget widget-text">
+                  <p>Add a description of your offer </p>
+                  <p>and key benefits. What it is <span style="">and </span></p>
+                  <p><span style="">how it helps your customer.</span></p>
+               </div>
+               <div id="FZiGFC4FKoThVMG4d9fHAcHyn7qHubwn" class="widget widget-text">
+                  <p>Benefit No. 3</p>
+               </div>
+               <img id="FITC3WM3oHO2cigNLmUMPOTToZ9QW4FV"  width="63" height="63"  class="widget widget-image" data-original="https://images.assets-landingi.com/PVOaT302/03.png" src="https://images.assets-landingi.com/4AGWQXBNCEGqbHHH/03.png" srcset="https://images.assets-landingi.com/4AGWQXBNCEGqbHHH/03.png 1x, https://images.assets-landingi.com/PVOaT302/03.png 2x"  alt="" >
+            </div>
+         </div>
+      </div>
+      <div id="HEOipMA6nHmRNqILRskbZ96KrPJyuC1y" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="GVJZbaO8DZIQXb3N524y3czCTzKarBID" class="widget widget-box"></div>
+               <div id="rfpPhdofiXpKb92WTAETtiyP7Hkbn93b" class="widget widget-text">
+                  <p><b>Participate </b>in the best lottery and get the opportunity to <b>Get Free Course</b></p>
+               </div>
+               <div id="KDRzEwhg90GHiKo6q82ZICd50i8TGOlv" class="widget widget-text">
+                  <p>BestSkills</p>
+               </div>
+               <div id="JBXxWEt41BIKNEeENl5NatbFW2tPi6Qg" class="widget widget-text">
+                  <p>Improve Your Skills</p>
+               </div>
+               <a href="#VbAH1H7oOcTviNLA3T42vrV7SvyfEpGN" id="i2BzrOIH94VpSFIfGLO3zDmQhPbdAqfx" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="tLnQ76TrMASe3fQDCiVl54qBTx6uFEBx" class="widget widget-text">learn more</div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div id="P9hfcINkNdlmP32emTI9iXrnE0JzJqzz" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="LVbyfsgHU4N1f1g7DvcxRRRObzCHUzRl" class="widget widget-text">
+                  <p>Our Numbers</p>
+               </div>
+               <div id="zSMmT8JRwbbTym3r0VikNdwugsnCqQLQ" class="widget widget-text">
+                  <p>A supporting statement for your value proposition to encourage </p>
+               </div>
+               <div id="VtdHfonvBMwsQ8cuMoZTCSqTlRb43vtu" class="widget widget-box"></div>
+               <div id="d9uQyuU8p6MgIZatlk0EzlinAFZzL2F5" class="widget widget-text">
+                  <p>Numbers</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="b2leByJCKeOlqwfe8S2cTBA09OItG7Qw" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="oWa08wrDNIeRr0fEdNfL33qbK2H3co47" class="widget widget-box"></div>
+               <div id="nUZOVE2zchxMnISxBpVnQrmUKRTRFNpR" class="widget widget-text">
+                  <p>2000+</p>
+               </div>
+               <div id="CgcvaXq8vXpkPfvEURCZ7pBfsPo1imyF" class="widget widget-text">
+                  <p>The Best Teachers</p>
+               </div>
+               <div id="XiTTnb9T8VLD1EAePcrWzFHOnZOrBkGQ" class="widget widget-box"></div>
+               <div id="Xg49DGm5mHK9JvhI6WzVb2G0TtfFBF2f" class="widget widget-text">
+                  <p>5050+</p>
+               </div>
+               <div id="fPRhIIt7DloSUDzpTKeAkZy3RkrkZoIs" class="widget widget-text">
+                  <p>The Best Students</p>
+               </div>
+               <div id="FoZxkgT5Pa8seDfPDucStU2bnPwmG38b" class="widget widget-box"></div>
+               <div id="MbBKVha8y0xQLHtMzHnUSW7hB9DMB0cG" class="widget widget-text">
+                  <p>3500+</p>
+               </div>
+               <div id="SlhMe8yX3KED0eRkDQcHxHLOVFez8zgN" class="widget widget-text">
+                  <p>The Best Courses</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="y9hd7g70xJcJFcTIcOD084xbe9aH3wsk" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="ztSR6Qo3fBsf79eJkapphSxqD0RtNC6d" class="widget widget-box"></div>
+               <div id="mDW90yGrEOwubvfoTb3CrawOTc4rhbiV" class="widget widget-box"></div>
+               <div id="OhtBT0Up0MLrGWLhkCMTlRLeva2pHfXZ" class="widget widget-text">
+                  <p>Your Strong Point</p>
+               </div>
+               <div id="AoAnUEnNfHTqZlFEokv7cZkXzTQgdSox" class="widget widget-text">
+                  <p>BEST DEGREE PROGRAMME</p>
+               </div>
+               <i id="x5m8CCFgEJ1rmUh5bBCGhp2qAKleO89X" class="fa fa-star widget widget-icon"></i><i id="BRNvnVqkVmH7wb4pGB660F7OHWBkTLzJ" class="fa fa-star widget widget-icon"></i><i id="q107IGSl8w5a2VlJkxvzFyrTo9RE5ZqA" class="fa fa-star widget widget-icon"></i><i id="xVhVKxKkiEFoH7n7DPI55hW1x7Rd6ktt" class="fa fa-star widget widget-icon"></i><i id="s9QKnmxG4vwN1GEasE1TSzkcb0TmABf9" class="fa fa-star widget widget-icon"></i>
+               <div id="PTHB5iEPMXsKHCqeWoA1vVoDof21WZ0q" class="widget widget-text">
+                  <p>(5)</p>
+               </div>
+               <i id="Tyv72wfQUHgmbAUEhfxBFyHog0TZqxyr" class="fa fa-clock-o widget widget-icon"></i>
+               <div id="fOSOBwIcCnEne1QQapTSc9RiuvrSUPfV" class="widget widget-text">
+                  <p>03 month</p>
+               </div>
+               <a href="#VbAH1H7oOcTviNLA3T42vrV7SvyfEpGN" id="dHGiiudIgee2KJl47NHpgLv5T5qt3CcA" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="uihgJACbrF49yEB8DcMa1ki9yeoyU82s" class="widget widget-text">Join</div>
+               </a>
+               <div id="DX9SUGNWc1aFla7RCHmOBqOzBUuIzCVE" class="widget widget-box"></div>
+               <div id="QZViW0QJmFrpWdivJnylaZOnhR3aeuxs" class="widget widget-text">
+                  <p>03 month</p>
+               </div>
+               <a href="#VbAH1H7oOcTviNLA3T42vrV7SvyfEpGN" id="mygLWtHNLRGpH4F4TGDCsvPNFVa7r9w5" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="Sf8RF1MsaDtcTBGxHK1TEyAGZ7WwFPTD" class="widget widget-text">Join</div>
+               </a>
+               <div id="LZVtLukgh87qFTI8TJkneHxgG3q05yTR" class="widget widget-text">
+                  <p>(5)</p>
+               </div>
+               <div id="mzmmW4pBFlclOvngL7ISCkn2AFNcoKin" class="widget widget-text">
+                  <p>BEST DEGREE PROGRAMME</p>
+               </div>
+               <div id="vFOZJMleSKZiLfFhiv1dTLuo99ycUEqx" class="widget widget-text">
+                  <p>Your Strong Point</p>
+               </div>
+               <div id="Dzswek8k6ThgH6ASkrBlHodA8hPQu5Qw" class="widget widget-box"></div>
+               <i id="xZTbkeslnUuxypfvnxPgzTCwh2TEVmB1" class="fa fa-star widget widget-icon"></i><i id="zWUeWkB15fy61nEofgWuTLdfu21P2Ta0" class="fa fa-star widget widget-icon"></i><i id="ZvQpCpmXy47bQQVpK7zlJQOMnyko5BPc" class="fa fa-star widget widget-icon"></i><i id="MfEoD1dpsNxz7xauSDSHkDVTGupgRptk" class="fa fa-star widget widget-icon"></i><i id="y40EQQfEP3GJVPMHLawy9dBdwOcEIbXc" class="fa fa-star widget widget-icon"></i><i id="SNmT5R1QcD6VVN0woNObbRLHsZSTZJIv" class="fa fa-clock-o widget widget-icon"></i>
+            </div>
+         </div>
+      </div>
+      <div id="C4uGdmOz7zSBlGr7lDUan0e30VnyM1pP" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="CtdPOebnel8qUsvF1sMidT0GrVitQIs7" class="widget widget-text">
+                  <p>Trust Elements</p>
+               </div>
+               <div id="G0o6ZbCPA3KSyc46xAJpDc1TIn3it7qX" class="widget widget-text">
+                  <p>A supporting statement for your value proposition to encourage </p>
+               </div>
+               <div id="Z9DWIos8AIfAVlWwMgT9pZ4fhbt4VTbQ" class="widget widget-box"></div>
+               <div id="GBIMWAR92W4mpECBF6TadKLIIqbBZDp9" class="widget widget-text">
+                  <p>Testimonials</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="PLtemRn53S6TlQeUct8xQWCLgxwIv8sE" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="Z9CHnCTz7Xhn9Dda91E57WBlFU4oTOxC" class="widget widget-box"></div>
+               <div id="LbdMcwa1VxdE5l7HQK9LMpQ7OS4K0K8C" class="widget widget-text">
+                  <p>“A few sentences about your prod-</p>
+                  <p>uct. How it help to solve clients' </p>
+                  <p>problems. It should convince the unconvinced. No fake photos!”</p>
+               </div>
+               <div id="I655ebKOREA2zl5m4PiUoSAUIhJXNuGI" class="widget widget-box"></div>
+               <div id="R6iwlHZxc0eOpHpN4J9XQN5F8gAkPyFH" class="widget widget-text">
+                  <p>Customer Name</p>
+               </div>
+               <div id="ENVS3vm2dF4GZlna8xH608GLEswLNaHg" class="widget widget-text">
+                  <p>NEW YORK, USA</p>
+               </div>
+               <div id="U0aE93kENZKp31IL1IlPxAeCCRngF0tP" class="widget widget-text">
+                  <p>Customer Name</p>
+               </div>
+               <div id="kMobfQGZhLEf77WoHotCRHaTV18Md7kx" class="widget widget-text">
+                  <p>NEW YORK, USA</p>
+               </div>
+               <div id="brqAgaMh8PI4qbkZFONupdVDHDrsT6qS" class="widget widget-box"></div>
+               <div id="br7rxzzTmTFTL1sLW5qTQRJUWPMCtVgh" class="widget widget-text">
+                  <p>“A few sentences about your prod-</p>
+                  <p>uct. How it help to solve clients' </p>
+                  <p>problems. It should convince the unconvinced. No fake photos!”</p>
+               </div>
+               <div id="Lh4yItbP4LPOhOUw9g2iMCnhOsI2xd3A" class="widget widget-box"></div>
+               <div id="bbxO295FyTUl9Haonzt6wns9VqdDdpTk" class="widget widget-text">
+                  <p>Customer Name</p>
+               </div>
+               <div id="as5iJhSoFz3aST5WbAgdeZTva90dTIT3" class="widget widget-text">
+                  <p>NEW YORK, USA</p>
+               </div>
+               <div id="FwS8kT9XBPKIDQyzkvD9Ghv84SiL6LCF" class="widget widget-box"></div>
+               <div id="A43KA0hxtulpWFEr4KacIOxUATOzn9dy" class="widget widget-text">
+                  <p>“A few sentences about your prod-</p>
+                  <p>uct. How it help to solve clients' </p>
+                  <p>problems. It should convince the unconvinced. No fake photos!”</p>
+               </div>
+               <div id="vIx5uyleQ8we2nOqpGu4CpRyNEMPTRPv" class="widget widget-box"></div>
+            </div>
+         </div>
+      </div>
+      <div id="wHID1z8qxzuGTgUbODIWc049xxUxT2w2" class="widget widget-section">
+         <div class="row">
+            <div class="container">
+               <div id="FPzcoSbGUq9UHIOioeTicUulT5ai2ky5" class="widget widget-text">
+                  <p>THE BEST COURSES</p>
+               </div>
+               <div id="H3ge5s9Kse6XGLEi3y4mRTHxQqrkh472" class="widget widget-box"></div>
+               <img id="k0Fsq0MgzoFsf4RP13DCpN1liEUDolHL"  width="83" height="48"  class="widget widget-image" data-original="https://images.assets-landingi.com/d1ar3wb3/04.png" src="https://images.assets-landingi.com/UMNnHlnJR1fN40sF/04.png" srcset="https://images.assets-landingi.com/UMNnHlnJR1fN40sF/04.png 1x, https://images.assets-landingi.com/d1ar3wb3/04.png 2x"  alt="" >
+               <div id="vHkpdg6VqcpXVOdMsTo6dixukSrwpryD" class="widget widget-text">
+                  <p>EDUCATION</p>
+               </div>
+               <div id="FnFoW8gaLCOTg6T8UouTQKgHZZxdkMMO" class="widget widget-text">
+                  <p><b>ONLINE COURSES</b></p>
+               </div>
+               <a href="#VbAH1H7oOcTviNLA3T42vrV7SvyfEpGN" id="ySqWBVd0By6TeqgxwMTDcNdP0IyRwgd2" class="widget widget-button"  version="3" subtype="anchor" >
+                  <div class="widget-overlay"></div>
+                  <div id="SQhflgUJXTGIaL82vxI47b8HeNxWsKOm" class="widget widget-text">join now</div>
+               </a>
+               <div id="C29k1SMfyp2aK4M46ViwdQPolAQGWEcb" class="widget widget-text">
+                  <p>“A supporting statement for your value proposition to encourage customers to complete your CTA.</p>
+                  <p><span style="letter-spacing: 0px;">Encourage customer to complete your CTA. A supporting statement for your value proposition to encourage customers to complete your CTA.”</span></p>
+               </div>
+               <div id="PDUq7lPaUSqPvBNZ84393csM5IsMJZHm" class="widget widget-box"></div>
+               <i id="zWvLWAnb1ofZiGU0v9q60mDRWw2uvJFW" class="fa fa-facebook widget widget-icon"></i>
+               <div id="lIPfWGzAJued3oSkvzJqkOH6LZ63qUG4" class="widget widget-box"></div>
+               <i id="u4fawebIosTInzEJSmiW5D9yOuHu30KB" class="fa fa-linkedin widget widget-icon"></i>
+               <div id="QJABftFoeZJDoG4RwoFuxF52Vd8ShzNx" class="widget widget-box"></div>
+               <i id="F5ACZOONSbadab7B5wwTtiwbnXabd1wv" class="fa fa-skype widget widget-icon"></i>
+               <div id="vP2GviImvIqhwAwu6M22RRx8nSwkxpxf" class="widget widget-box"></div>
+               <i id="hKIgAH61ayth6TVTTpsZuC57CSCBdeR9" class="fa fa-twitter widget widget-icon"></i>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script type="text/javascript" src="https://old.assets-landingi.com/bootstrap/js/landend.bootstrap.min.js"></script><script type="text/javascript" src="https://old.assets-landingi.com/bootstrap/js/bootbox.min.js"></script><script type="text/javascript" src="https://old.assets-landingi.com/js/landing.js"></script><script type="text/javascript" src="https://old.assets-landingi.com/assets/js/dist/landend/301019/landend.js"></script><script type="text/javascript" src="https://old.assets-landingi.com/assets/js/landend/anchors/v02.js"></script><script type='text/javascript' src='https://old.assets-landingi.com/assets/js/vendor/jquery-form/jquery.form.min.js'></script>
+      <script type="text/javascript" src="https://old.assets-landingi.com/assets/js/landend/190819/landend.js"></script>
+      <script type="text/javascript" src="https://old.assets-landingi.com/assets/js/landend/070619/validation.js"></script><script src="https://stats.landingi.com/track/818281"></script><script src="https://scripts.assets-landingi.com/video-bg/v0.5/videoBackground.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"f1e66e60b0","applicationID":"230713468","transactionName":"MVNVNRYCV0ZZVRZaDggZdgIQClZbF18MVwQeGV4PAAZB","queueTime":0,"applicationTime":382,"atts":"HRRWQ14YREg=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+   </body>
+</html>
